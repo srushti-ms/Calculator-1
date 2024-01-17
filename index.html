@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+</head>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Lemon&display=swap');
+    .but{
+        width: 40px;
+        height: 40px;
+        border: 1px solid black;
+        margin: 1px;
+        background-color:aquamarine;
+        font-family: 'Lemon', serif;
+
+    }
+    #inputs{
+      height: 50px;
+      width: 173px;
+      background-color: black;
+      color: aquamarine
+    }
+    
+  @import url('https://fonts.googleapis.com/css2?family=Lemon&display=swap');
+</style>
+<body>
+  <div class="main">
+    <input type="text" id = 'inputs'>
+    <div class="btn">
+       <input  class="but" type="button" value = 'C' onclick = "Clear()">
+       <input class="but" type="button" value = '%' onclick = "Solve('%')">
+       <input  class="but" type="button" value = '←' onclick ="Back('←')">
+       <input  class="but" type="button" value = '/' onclick = "Solve('/')">
+       <br>
+       <input class="but" type="button" value = '7' onclick = "Solve('7')">
+       <input class="but" type="button" value = '8' onclick = "Solve('8')">
+       <input class="but" type="button" value = '9' onclick = "Solve('9')">
+       <input class="but" type="button" value = 'x' onclick = "Solve('*')">
+       <br>
+       <input class="but" type="button" value = '4' onclick = "Solve('4')">
+       <input class="but" type="button" value = '5' onclick = "Solve('5')">
+       <input class="but" type="button" value = '6' onclick = "Solve('6')">
+       <input class="but" type="button" value = '-' onclick = "Solve('-')">
+       <br>
+       <input class="but" type="button" value = '1' onclick = "Solve('1')">
+       <input class="but" type="button" value = '2' onclick = "Solve('2')">
+       <input class="but" type="button" value = '3' onclick = "Solve('3')">
+       <input class="but" type="button" value = '+' onclick = "Solve('+')">
+       <br>
+       <input class="but" type="button" value = '00'onclick = "Solve('00')">
+       <input class="but" type="button" value = '0' onclick = "Solve('0')">
+       <input class="but" type="button" value = '.' onclick = "Solve('.')">
+       <input class="but" type="button" value = '=' onclick = "Result()">
+    </div>
+ </div>
+<script>
+function Solve(val) {
+  var v = document.getElementById('inputs');
+  v.value += val;
+}
+function Result() {
+  var num1 = document.getElementById('inputs').value;
+  var num2 = eval(num1);
+  document.getElementById('inputs').value = num2;
+}
+function Clear() {
+  var inp = document.getElementById('inputs');
+  inp.value = '';
+}
+function Back() {
+  var ev = document.getElementById('inputs');
+  ev.value = ev.value.slice(0,-1);
+}</script>
+</body>
+</html>
